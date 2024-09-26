@@ -7,13 +7,14 @@
     gazella_group_security: swisstech
   roles:
     - role: gazellacom-awx-config
-      gazellacom_mode: config_server                         #config, reset, clean
+      gazellacom_mode: config_server                  #config, reset, clean
       gazellacom_project: gomax                       # client
       gazellacom_environment: integration             #integration, production
       gazellacom_awx_user: awx_build
       gazellacom_awx_group: "{{ gazella_group_security }}"
       gazellacom_awx_project: "{{ gazellacom_project }}"
       gazellacom_awx_environment: "{{ gazellacom_environment }}"
+      gazella_key_home: /opt/vault/awx/secure
 
 - name: gomax config integration 
   hosts: gazellacom
@@ -36,5 +37,6 @@
       gazellacom_client_user_passwd: "*"
       gazellacom_client_user_update_password: always
       gazellacom_client_user_shell: /bin/bash
+      gazellacom_client_user_system: False 
 
 
