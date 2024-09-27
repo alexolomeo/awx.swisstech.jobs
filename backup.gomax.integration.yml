@@ -1,10 +1,12 @@
 ---
 
-- name: awx.swisstech.playbook
-  src: "https://github.com/alexolomeo/awx.swisstech.playbook.git"
-  scm: 'git'
-  version: master
-  ignore_errors: true
+- name: Projec Playbook
+  project:
+    name: "Swisstech Playbook"
+    description: "Foo bar project"
+    organization: "Swisstech Solution"
+    state: present
+    controller_config_file: "~/tower_cli.cfg"
 
 - name: gomax integration backup
   hosts: gazellacom-integration
