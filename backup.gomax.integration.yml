@@ -3,6 +3,8 @@
 - name: gomax integration backup
   hosts: gazellacom-integration
   become: true
+  vars:
+    gazella_group_security: swisstech
   roles:
     - role: gazella-backup
       gazella_mode: backup                         #backup, copyfromprod, restore, cleandb
