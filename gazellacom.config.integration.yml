@@ -7,13 +7,9 @@
     gazella_group_security: swisstech
   roles:
     - role: gazellacom-awx-config
-      gazellacom_mode: config_server                  #config, reset, clean
+      gazellacom_mode: config_server                  # config_client, cofig_server
       gazellacom_project: gomax                       # client
-      gazellacom_environment: integration             #integration, production
-      gazellacom_awx_user: awx_build
-      gazellacom_awx_group: "{{ gazella_group_security }}"
-      gazellacom_awx_project: "{{ gazellacom_project }}"
-      gazellacom_awx_environment: "{{ gazellacom_environment }}"
+      gazellacom_environment: integration             # integration, production
       gazella_key_home: /opt/vault/awx/secure
 
 - name: gomax config integration 
@@ -23,20 +19,9 @@
     gazella_group_security: swisstech
   roles:
     - role: gazellacom-awx-config
-      gazellacom_mode: config_client                         #config, reset, clean
+      gazellacom_mode: config_client                  # config_client, cofig_server
       gazellacom_project: gomax                       # client
-      gazellacom_environment: integration             #integration, production
+      gazellacom_environment: integration             # integration, production
       gazellacom_client_base: '/opt/.awx'
-      gazellacom_client_database: '{{ gazellacom_client_base }}/db'
-      gazellacom_client_database_environment: "{{ gazellacom_client_database }}/{{ gazellacom_environment }}"
-      gazellacom_client_database_backup: "{{ gazellacom_client_database_environment }}/backup"
-      gazellacom_client_database_copyfromprod: "{{ gazellacom_client_database_environment }}/remote"
-      gazellacom_client_deployment: '{{ gazellacom_client_base }}/deployment'
-      gazellacom_client_user:  awx_user
-      gazellacom_client_group:  "{{ gazella_group_security }}"
-      gazellacom_client_user_passwd: "*"
-      gazellacom_client_user_update_password: always
-      gazellacom_client_user_shell: /bin/bash
-      gazellacom_client_user_system: False 
 
 
