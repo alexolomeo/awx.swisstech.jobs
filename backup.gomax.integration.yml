@@ -1,7 +1,7 @@
 ---
 
 - name: Projec Playbook
-  project:
+  awx.awx.project:
     name: "Swisstech Playbook"
     description: "Foo bar project"
     organization: "Swisstech Solution"
