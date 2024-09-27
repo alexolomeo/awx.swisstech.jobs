@@ -1,5 +1,11 @@
 ---
 
+- name: awx.swisstech.playbook
+  src: "https://github.com/alexolomeo/awx.swisstech.playbook.git"
+  scm: 'git'
+  version: master
+  ignore_errors: true
+
 - name: gomax integration backup
   hosts: gazellacom-integration
   become: true
