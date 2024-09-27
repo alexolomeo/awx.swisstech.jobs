@@ -40,7 +40,7 @@ integration ()
 {
 	repository
 
-	ansible-playbook -i inventory/setup.integration gazellacom.config.integration.yml
+	ansible-playbook -i inventory/setup.inventory gazellacom.config.integration.yml
 	
 	remove_repository
 }
@@ -49,7 +49,7 @@ production ()
 {
 	repository
 
-	ansible-playbook -i inventory/setup.production gazellacom.config.production.yml
+	ansible-playbook -i inventory/setup.inventory gazellacom.config.production.yml
 
 	remove_repository
 }

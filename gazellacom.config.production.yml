@@ -13,7 +13,7 @@
       gazella_key_home: /opt/vault/awx/secure
 
 - name: gomax config integration 
-  hosts: gazellacom-integration
+  hosts: gazellacom-production
   become: true
   vars:
     gazella_group_security: swisstech
