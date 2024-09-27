@@ -8,15 +8,27 @@ export LANG=en_US.UTF-8
 RETVAL=0
 BACKUPDATE="$(date +'%Y%m%d-%H%M')"
 
+REPO_SSH=git@github.com:alexolomeo/awx.swisstech.playbook.git
+REPO_NAME=awx.swisstech.playbook
+
 ##
 ## Prepare repository
 ##
 
-\rm -rf roles key awx.swisstech.playbook
+repository ()
+{
+	\rm -rf roles key $REPO_NAME
 
-git clone git@github.com:alexolomeo/awx.swisstech.playbook.git
+	git clone $REPO_SSH
 
-ln -s awx.swisstech.playbook/roles roles
+	ln -s $REPO_NAME/roles roles
+}
+
+remove_repository ()
+{
+	\rm -rf roles key awx.swisstech.playbook
+
+}
 
 usage ()
 {
@@ -26,12 +38,20 @@ usage ()
 
 integration ()
 {
+	repository
+
 	ansible-playbook -i inventory/setup.integration gazellacom.config.integration.yml
+	
+	remove_repository
 }
 
 production ()
 {
+	repository
+
 	ansible-playbook -i inventory/setup.production gazellacom.config.production.yml
+
+	remove_repository
 }
 
 
