@@ -6,10 +6,10 @@
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazellacom-awx-config
-      gazellacom_mode: config_server                  # config_client, cofig_server
-      gazellacom_project: gomax                       # client
-      gazellacom_environment: integration             # integration, production
+    - role: gazella-awx-config
+      gazella_mode: config_server                  # config_client, cofig_server
+      gazella_project: gomax                       # client
+      gazella_environment: integration             # integration, production
       gazella_key_home: /opt/vault/awx/secure
 
 - name: gomax config integration 
@@ -18,9 +18,9 @@
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazellacom-awx-config
-      gazellacom_mode: config_client                  # config_client, cofig_server
-      gazellacom_project: gomax                       # client
-      gazellacom_environment: integration             # integration, production
-      gazellacom_client_base: '/opt/.awx'
+    - role: gazella-awx-config
+      gazella_mode: config_client                  # config_client, cofig_server
+      gazella_project: gomax                       # client
+      gazella_environment: integration             # integration, production
+      gazella_client_base: '/opt/.awx'
 
