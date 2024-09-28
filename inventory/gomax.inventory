@@ -21,17 +21,17 @@ ansible_user=awx-user
 ansible_become=yes
 ansible_python_interpreter=/usr/bin/python3
 
-[gazellacomintegration]
+[gazellacom-integration]
 com-integration ansible_host=gomax-com-integration.swisstech.solutions
 
-[gazellacomintegration:vars]
+[gazellacom-integration:vars]
 ansible_user=awx-user
 ansible_become=yes
 
 
-[controllerserver]
+[controller-server]
 controller ansible_host=159.65.253.208
 
-[controllerserver:vars]
+[controller-server:vars]
 ansible_user=awx-build
 ansible_become=yes

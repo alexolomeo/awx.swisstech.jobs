@@ -1,11 +1,12 @@
 ---
 
 - name: gomax integration backup
-  hosts: gazellacomintegration
+  hosts: gazellacom-integration
   become: true
   vars:
     gazella_group_security: swisstech
   roles:
+    - role: gazella-backup
       gazella_mode: backup                         #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
       gazella_environment: integration             #integration, production
@@ -15,3 +16,6 @@
       gazella_db_local_username: "{{ db_username }}"                         
       gazella_db_local_password: "{{ db_password }}"               
       gazella_db_local_retention: 10                          
+
+
+
