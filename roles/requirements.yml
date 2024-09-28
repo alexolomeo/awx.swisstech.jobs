@@ -1,7 +1,0 @@
----
-# test role for date and time for repository1
-- name: awx.swisstech.playbook
-  src: "https://github.com/alexolomeo/awx.swisstech.playbook.git"
-  scm: 'git'
-  version: master
-  ignore_errors: true
