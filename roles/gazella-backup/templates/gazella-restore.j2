@@ -1,0 +1,35 @@
+#!/bin/bash
+
+# Swisstech.solutions
+# autor: alexander.aguilar@swisstech.solutions
+#
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
+#Username for owner
+RESTORE_DBUSERNAME=$1
+#Password for username
+RESTORE_DBUSERPASS=$2
+
+##DATABASE ##
+RESTORE_DB=$3
+RESTORE_DBHOST=$4
+
+SOURCE_DB=$5
+RESTORE_LOG=$6
+
+RESTORE_PORT='{{ gazellacom_db_local_port }}'
+RESTORE_NODE='{{ gazellacom_db_restore_node }}'
+
+BACKUPDATE="$(date +'%Y%m%d-%H%M')"
+
+##
+## Prepare to load from  backup
+##
+
+# Load Database from production environment
+export PGPASSWORD=$RESTORE_DBUSERPASS
+
+pg_restore --host $RESTORE_DBHOST --port $RESTORE_PORT -j $RESTORE_NODE  -U $RESTORE_DBUSERNAME  -Fc -d $RESTORE_DB "$SOURCE_DB" >> $RESTORE_LOG 
+
+

@@ -1,0 +1,25 @@
+---
+
+gazella_mode:                                #backup, copyfromprod, restore, cleandb
+gazella_project: client                      # client
+gazella_environment: integration             #integration, production
+gazella_db_remote_host: 
+gazella_db_remote_name:
+gazella_db_remote_port: 5432
+gazella_db_remote_username: "{{ db_username_remote }}"
+gazella_db_remote_password: "{{ db_password_remote }}"
+gazella_db_local_host: 
+gazella_db_local_name:
+gazella_db_local_port: 5432
+gazella_db_local_username: "{{ db_username}}"
+gazella_db_local_password: "{{ db_password }}"
+gazella_db_local_username_main: "{{ db_username_main }}"
+gazella_db_local_password_main: "{{ db_password_main }}"
+gazella_local_base: '/opt/.awx/db'
+gazella_local_workdir: "{{ gazella_local_base }}/{{ gazella_environment }}"
+gazella_remote_workdir: "{{ gazella_local_base }}/remote"
+gazella_awx_user:  awx_user
+gazella_awx_group:  "{{ gazella_group_security }}"
+gazella_db_restore_node: 10
+gazella_db_local_retention: 1
+

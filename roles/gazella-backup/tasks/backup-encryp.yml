@@ -1,0 +1,58 @@
+---
+
+- name: "Backup  {{ gazella_project }} - {{ gazella_environment }} "
+  block:
+
+    - name: Print message if ansible version is greater than 2.7.0
+      debug:
+        msg: "Ansible version is  {{ ansible_version.full }}"
+
+    - name: Get timestamp from the system
+      shell: "date +%Y%m%d-%H%M"
+      register: tstamp
+
+    - name: Set variables
+      set_fact:
+       my_date: "{{ tstamp.stdout[0:8]}}"
+       my_time: "{{ tstamp.stdout[8:]}}"
+
+    - name: "Ensure app workdir exists: {{ gazella_local_workdir }}"
+      become: yes
+      ansible.builtin.file:
+        path: "{{ gazella_local_workdir }}"
+        state: directory
+#        owner: "{{ gazella_awx_user }}"
+#        group: "{{ gazella_awx_group }}"
+        mode: 0775
+        force: yes
+
+    - name: "Backup directory workdir exists: {{ gazella_local_workdir }}/backup"
+      become: yes
+      ansible.builtin.file:
+        path: "{{ gazella_local_workdir }}/backup"
+        state: directory
+#        owner: "{{ gazella_awx_user }}"
+#        group: "{{ gazella_awx_group }}"
+        mode: 0775
+        force: yes
+
+    - name: "Log Directory workdir exists: {{ gazella_local_workdir }}/log"
+      become: yes
+      ansible.builtin.file:
+        path: "{{ gazella_local_workdir }}/log"
+        state: directory
+#       owner: "{{ gazella_awx_user }}"
+#        group: "{{ gazella_awx_group }}"
+        mode: 0775
+        force: yes
+
+    - name: "Start PGDUMP for backup"
+      become: yes
+      ansible.builtin.shell: "export PGPASSWORD={{ gazella_db_local_password }} ; pg_dump -h {{ gazella_db_local_host }} -U {{ gazella_db_local_username }} --exclude-table-data 'audit.*'  -Fc {{ gazella_db_local_name }} > {{ gazella_db_local_name }}-{{ my_date }}{{ my_time }}.bkp "
+      args:
+        chdir: "{{ gazella_local_workdir }}/backup"
+
+    - name: "Finish backup "
+      become: yes
+      ansible.builtin.shell: "echo '{{ my_date }}{{ my_time }} [BACKUP] Creating backup {{ gazella_local_workdir }}/backup/{{ gazella_db_local_name }}-{{ my_date }}{{ my_time}}.bkp from the database {{ gazella_db_local_name }}' >> {{ gazella_local_workdir }}/log/backup.log"
+

@@ -1,4 +1,0 @@
-- src: git@github.com:alexolomeo/awx.gazella.backup.git
-  scm: git
-  name: awx.gazella.backup
-  version: master

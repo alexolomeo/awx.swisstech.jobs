@@ -1,0 +1,14 @@
+---
+
+- name: "Connfig to environment an user access"
+  ansible.builtin.include_tasks: config.yml
+  when: gazella_mode == 'config'    
+
+- name: "Backup DB GazellaCOM"
+  ansible.builtin.include_tasks: backup.yml
+  when: gazella_mode == 'backup'    
+
+- name: "Copy From Production"
+  ansible.builtin.include_tasks: copyfromprod.yml
+  when: gazella_mode == 'copyfromprod'    
+
