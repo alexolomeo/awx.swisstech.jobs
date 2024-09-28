@@ -6,7 +6,7 @@
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: awx.gazella.backup
+    - role: gazella-backup
       gazella_mode: backup                         #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
       gazella_environment: integration             #integration, production
