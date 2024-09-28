@@ -1,7 +1,7 @@
 ---
 
 - name: gomax integration backup
-  hosts: gazellacom-integration
+  hosts: gazellacomintegration
   become: true
   vars:
     gazella_group_security: swisstech
