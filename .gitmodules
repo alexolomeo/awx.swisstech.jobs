@@ -1,3 +1,0 @@
-[submodule "awx.swisstech.roles"]
-	path = awx.swisstech.roles
-	url = git@github.com:alexolomeo/awx.swisstech.roles.git
