@@ -16,6 +16,6 @@
       gazella_db_local_username: "{{ db_username }}"                         
       gazella_db_local_password: "{{ db_password }}"               
       gazella_db_local_retention: 10                          
-
+      gazella_db_local_exclude: "{{ db_local_exclude }}"          # --exclude-table-data 'audit.*' 
 
 
