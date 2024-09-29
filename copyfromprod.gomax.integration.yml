@@ -2,7 +2,7 @@
 
 - name: gomax integration copyfromprod
   hosts: gazellacom-integration
-  become: true
+#  become: true
   vars:
     gazella_group_security: swisstech
   roles:
