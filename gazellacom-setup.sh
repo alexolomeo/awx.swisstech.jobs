@@ -17,17 +17,16 @@ REPO_NAME=awx.swisstech.playbook
 
 repository ()
 {
-	\rm -rf roles key $REPO_NAME
-
-	git clone $REPO_SSH
-
-	ln -s $REPO_NAME/roles roles
+	\rm -rf key
+#	\rm -rf roles key $REPO_NAME
+#	git clone $REPO_SSH
+#	ln -s $REPO_NAME/roles roles
 }
 
 remove_repository ()
 {
-	\rm -rf roles key awx.swisstech.playbook
-
+#	\rm -rf roles key awx.swisstech.playbook
+	\rm -rf key
 }
 
 usage ()
