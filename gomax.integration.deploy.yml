@@ -1,0 +1,26 @@
+---
+- name: gomax integration build
+  hosts: controller-server 
+  vars:
+    gazella_group_security: swisstech  
+  roles:
+    - role: gazella-com-deploy
+      gazella_mode: build
+      gazella_project: gomax                                # client
+      gazella_environment: integration                      # integration, production
+      gazella_build_profile_customer: gomax                 # mvn -X -s customer/client/setting.xml
+      gazella_build_profile_environment: integration        # mvn -X -Pintegratioon
+      gazella_build_repo_url: git@bitbucket.org:Swissbytes/syscom.git 
+      gazella_build_repo_branch: QA/COM-v2.13   #QA/COM-v2.13
+      gazella_build_repo_filter: COM
+
+- name: gomax integration deploy
+  hosts: gazellacom-integration
+  become: true
+  vars:
+     gazella_number_build: "{{ lookup('ansible.builtin.vars', 'variabl' + gazella_number_build) }}"
+  roles:
+    - role: gazella-com-deploy
+      gazella_mode: deploy
+      gazella_project: gomax                          # client
+      gazella_environment: integration                #integration, production
