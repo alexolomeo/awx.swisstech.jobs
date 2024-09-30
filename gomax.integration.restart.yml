@@ -1,0 +1,10 @@
+---
+- name: gomax integration restart
+  hosts: gazellacom-integration
+  vars:
+    gazella_group_security: swisstech  
+  roles:
+    - role: gazella-com-restart
+      gazella_mode: restart                           # restart. restart-clean
+      gazella_project: gomax                          # client
+      gazella_environment: integration                # integration, production
