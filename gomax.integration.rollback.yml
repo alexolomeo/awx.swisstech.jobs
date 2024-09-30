@@ -1,0 +1,15 @@
+---
+
+- name: gomax integration rollback
+  hosts: gazellacom-integration
+#  become: true
+  vars:
+    gazella_group_security: swisstech  
+  roles:
+    - role: gazella-com-rollback
+      gazella_mode: rollback                  # rollback, listbuild, listbuildurl, mixed
+      gazella_project: gomax                  # client
+      gazella_environment: integration        # integration, production
+      gazella_method: static                  # static, url, mixed
+      gazella_method_url: null                # aws, digitalocean
+      gazella_rollback_build_number: 0        # value numeric , 0 is a default

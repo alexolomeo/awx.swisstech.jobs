@@ -1,0 +1,10 @@
+---
+
+- name: gomax integration rollback
+  hosts: gazellacom-integration
+#  become: true
+  roles:
+    - role: gazella-com-rollback
+      gazella_mode: listbuild                 # rollback, listbuild, listbuildurl, mixed
+      gazella_limit: 10
+      gazella_remote_workdir: '/opt/.awx/deployments'
