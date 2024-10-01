@@ -1,0 +1,33 @@
+---
+- name: gomax integration encode
+  hosts: controller-server 
+  vars:
+    gazella_group_security: swisstech  
+  roles:
+    - role: gazella-backup
+      gazella_mode: backup-encode    
+      gazella_project: gomax                                # client
+      gazella_environment: integration                      # integration, production
+
+- name: gomax integration encrypt
+  hosts: gazellacom-integration
+  vars:
+    gazella_group_security: swisstech  
+  roles:
+    - role: gazella-backup
+      gazella_mode: backup-encrypt-fail                 #backup, copyfromprod, restore, cleandb
+      gazella_project: gomax                       # client
+      gazella_app: com                             # com , erp
+      gazella_environment: integration             #integration, production
+      gazella_db_local_host: gomax-syscom-int.citzwq60niow.us-east-1.rds.amazonaws.com
+      gazella_db_local_name: syscomdbintegration
+      gazella_db_local_port: 5432 
+      gazella_db_local_username: "{{ db_username}}"
+      gazella_db_local_password: "{{ db_password }}"
+      gazella_db_local_username_main: "{{ db_username_main }}"
+      gazella_db_local_password_main: "{{ db_password_main }}"
+      gazella_db_restore_node: 10
+      gazella_db_local_retention: 1                         
+      gazella_db_local_exclude: "{{ db_local_exclude }}"          # --exclude-table-data 'audit.*' 
+      gazella_db_retentioo_day: 30                                # days
+
