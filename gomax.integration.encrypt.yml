@@ -1,9 +1,9 @@
 ---
-collections:
-  - community.general
 
 - name: gomax integration encode
   hosts: controller-server 
+  collections:
+    - community.general
   vars:
     gazella_group_security: swisstech  
   roles:
