@@ -18,7 +18,7 @@
     gazella_group_security: swisstech  
   roles:
     - role: gazella-backup
-      gazella_mode: backup-encrypt-fail                 #backup, copyfromprod, restore, cleandb
+      gazella_mode: backup-encrypt                 #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
       gazella_app: com                             # com , erp
       gazella_environment: integration             #integration, production
