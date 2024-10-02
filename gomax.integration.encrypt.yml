@@ -8,7 +8,9 @@
     - role: gazella-backup
       gazella_mode: backup-encode    
       gazella_project: gomax                                # client
+      gazella_app: com                                      # com , erp
       gazella_environment: integration                      # integration, production
+      gazella_db_local_name: syscomdbintegration
 
 - name: gomax integration encrypt
   hosts: gazellacom-integration
