@@ -1,6 +1,4 @@
 ---
-collections:
-  - name: community.general
 
 - name: gomax integration encode
   hosts: controller-server 
