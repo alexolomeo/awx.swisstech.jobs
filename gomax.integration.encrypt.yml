@@ -29,6 +29,7 @@
       gazella_db_local_password: "{{ db_password }}"
       gazella_db_local_username_main: "{{ db_username_main }}"
       gazella_db_local_password_main: "{{ db_password_main }}"
+      gazella_db_encrypt_pass: "{{ db_key_decrypt }}"
       gazella_db_restore_node: 10
       gazella_db_local_retention: 1                         
       gazella_db_local_exclude: "{{ db_local_exclude }}"          # --exclude-table-data 'audit.*' 
