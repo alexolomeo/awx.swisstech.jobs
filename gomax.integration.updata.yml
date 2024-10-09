@@ -1,0 +1,28 @@
+---
+
+- name: gomax integration copyfromprod
+  hosts: gazellacom-integration
+#  become: true
+  vars:
+    gazella_group_security: swisstech
+  roles:
+    - role: gazella-backup
+      gazella_mode: update_password                   #backup, copyfromprod, restore, cleandb
+      gazella_project: gomax                       # client
+      gazella_environment: integration             #integration, production
+      gazella_db_remote_host: gomax-syscom-prod.citzwq60niow.us-east-1.rds.amazonaws.com                       
+      gazella_db_remote_name: syscomdb
+      gazella_db_remote_port: 5432
+      gazella_db_remote_username: "{{ db_username_remote }}"
+      gazella_db_remote_password: "{{ db_password_remote }}"
+      gazella_db_local_host: gomax-syscom-int.citzwq60niow.us-east-1.rds.amazonaws.com
+      gazella_db_local_name: syscomdbintegration
+      gazella_db_local_port: 5432 
+      gazella_db_local_username: "{{ db_username}}"
+      gazella_db_local_password: "{{ db_password }}"
+      gazella_db_local_username_main: "{{ db_username_main }}"
+      gazella_db_local_password_main: "{{ db_password_main }}"
+      gazella_db_restore_node: 10
+      gazella_db_local_retention: 1                         
+      gazella_db_remote_exclude: "{{ db_remote_exclude }}"        # --exclude-table-data 'audit.*' 
+      gazella_password_update: "{{ gazella_password_promt }}"
