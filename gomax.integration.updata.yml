@@ -25,5 +25,5 @@
       gazella_db_restore_node: 10
       gazella_db_local_retention: 1                         
       gazella_db_remote_exclude: "{{ db_remote_exclude }}"        # --exclude-table-data 'audit.*' 
-      gazella_username_update: "{{ update_username }}"
-      gazella_password_update: "{{ update_password }}"
+      gazella_update_username: "{{ update_username }}"
+      gazella_update_password: "{{ update_password }}"
