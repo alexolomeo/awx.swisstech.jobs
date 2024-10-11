@@ -9,6 +9,7 @@
     - role: gazella-user-single
       gazella_mode: config_server                  # config_client, cofig_server
       gazella_project: gomax                       # client
+      gazella_app: com                             # client
       gazella_environment: integration             # integration, production
       gazella_user_new: "{{ gazella_user_new }}"
       gazella_key_home: /opt/vault/awx/secure
@@ -22,5 +23,6 @@
     - role: gazella-user-single
       gazella_mode: config_client                  # config_client, cofig_server
       gazella_project: gomax                       # client
+      gazella_app: com                             # client
       gazella_environment: integration             # integration, production
       gazella_user_new: "{{ gazella_user_new }}"
