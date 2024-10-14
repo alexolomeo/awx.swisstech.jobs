@@ -7,7 +7,7 @@
     gazella_group_security: swisstech
   roles:
     - role: gazella-backup
-      gazella_mode: update_password                   #backup, copyfromprod, restore, cleandb
+      gazella_mode: copyfromprod                   #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
       gazella_environment: integration             #integration, production
       gazella_db_remote_host: gomax-syscom-prod.citzwq60niow.us-east-1.rds.amazonaws.com                       
@@ -25,5 +25,6 @@
       gazella_db_restore_node: 10
       gazella_db_local_retention: 1                         
       gazella_db_remote_exclude: "{{ db_remote_exclude }}"        # --exclude-table-data 'audit.*' 
+      gazella_update_password_enable: enable
       gazella_update_username: "{{ update_username }}"
       gazella_update_password: "{{ update_password }}"
