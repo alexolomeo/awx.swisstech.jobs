@@ -7,7 +7,7 @@
     gazella_group_security: swisstech
   roles:
     - role: gazella-user-single
-      gazella_mode: config_server                  # config_client, cofig_server
+      gazella_mode: user_server                  # user_client, client_server
       gazella_project: gomax                       # client
       gazella_environment: integration             # integration, production
       gazella_user_new: "{{ gazellauser_new }}"
@@ -20,7 +20,7 @@
     gazella_group_security: swisstech
   roles:
     - role: gazella-user-single
-      gazella_mode: config_client                  # config_client, cofig_server
+      gazella_mode: user_client                  # config_client, cofig_server
       gazella_project: gomax                       # client
       gazella_app: com                             # com, erp
       gazella_environment: integration             # integration, production
