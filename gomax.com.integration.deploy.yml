@@ -23,3 +23,6 @@
       gazella_mode: deploy
       gazella_project: gomax                          # client
       gazella_environment: integration                #integration, production
+      gazella_unify_activate: no            # yes, no
+      gazella_unify_path: /opt/.gazellacom   # path for unify all configuration
+

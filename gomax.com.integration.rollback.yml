@@ -13,3 +13,5 @@
       gazella_method: static                  # static, url, mixed
       gazella_method_url: null                # aws, digitalocean
       gazella_rollback_build_number: 0        # value numeric , 0 is a default
+      gazella_unify_activate: no            # yes, no
+      gazella_unify_path: /opt/.gazellacom   # path for unify all configuration
