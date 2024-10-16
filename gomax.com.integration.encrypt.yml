@@ -13,7 +13,7 @@
       gazella_db_local_name: syscomdbintegration
 
 - name: gomax integration encrypt
-  hosts: gazellacom-integration
+  hosts: gazella-com-integration
   vars:
     gazella_group_security: swisstech  
   roles:
