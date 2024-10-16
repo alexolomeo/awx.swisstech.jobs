@@ -1,10 +1,10 @@
 ---
 - name: gomax integration build
-  hosts: controller-server 
+  hosts: awx-server 
   vars:
     gazella_group_security: swisstech  
   roles:
-    - role: gazella-com-deploy
+    - role: gazella-jobs-deploy-com
       gazella_mode: build
       gazella_project: gomax                                # client
       gazella_environment: integration                      # integration, production
@@ -15,11 +15,11 @@
       gazella_build_repo_filter: COM
 
 - name: gomax integration deploy
-  hosts: gazellacom-integration
+  hosts: gazella-com-integration
   vars:
     gazella_group_security: swisstech  
   roles:
-    - role: gazella-com-deploy
+    - role: gazella-jobs-deploy-com
       gazella_mode: deploy
       gazella_project: gomax                          # client
       gazella_environment: integration                #integration, production

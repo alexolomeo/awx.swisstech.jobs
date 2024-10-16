@@ -1,15 +1,15 @@
 ---
 
-- name: gomax integration backup
-  hosts: gazellacom-integration
+- name: gomax production backup
+  hosts: gazella-erp-production
 #  become: true
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazella-backup
+    - role: gazella-jobs-backup
       gazella_mode: listbackup                         #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
-      gazella_environment: integration             #integration, production
+      gazella_environment: production             #integration, production
       gazella_limit: 10                          
 
 

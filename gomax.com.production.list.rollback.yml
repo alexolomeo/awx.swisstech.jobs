@@ -1,10 +1,10 @@
 ---
 
-- name: gomax integration rollback
-  hosts: gazellacom-integration
+- name: gomax production rollback
+  hosts: gazella-com-production
 #  become: true
   roles:
-    - role: gazella-com-rollback
+    - role: gazella-jobs-rollback-com
       gazella_mode: listbuild                 # rollback, listbuild, listbuildurl, mixed
       gazella_limit: 10
       gazella_remote_workdir: '/opt/.awx/deployments'

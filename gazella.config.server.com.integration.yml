@@ -1,27 +1,26 @@
 ---
 
-- name: Controller create key on server  AWX
+- name: Controller  AWX
   hosts: awx-server
   become: true
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazella-user-single
-      gazella_mode: user_server                    # user_client, client_server
+    - role: gazella-awx-config
+      gazella_mode: config_server                  # config_client, cofig_server
       gazella_project: gomax                       # client
       gazella_environment: integration             # integration, production
-      gazella_user_new: "{{ gazella_user_new }}"
       gazella_key_home: /opt/vault/awx/secure
 
-- name: gomax create new user integration 
+- name: gomax config integration 
   hosts: gazella-com-integration
   become: true
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazella-jobs-user-single
-      gazella_mode: user_client                    # config_client, cofig_server
+    - role: gazella-awx-config
+      gazella_mode: config_client                  # config_client, cofig_server
       gazella_project: gomax                       # client
-      gazella_app: com                             # com, erp
       gazella_environment: integration             # integration, production
-      gazella_user_new: "{{ gazella_user_new }}"
+      gazella_client_base: '/opt/.awx'
+

@@ -1,7 +1,7 @@
 ---
 
 - name: Controller  AWX
-  hosts: controller-server
+  hosts: awx-server
   become: true
   vars:
     gazella_group_security: swisstech
@@ -9,11 +9,11 @@
     - role: gazella-awx-config
       gazella_mode: config_server                  # config_client, cofig_server
       gazella_project: gomax                       # client
-      gazella_environment: integration             # integration, production
+      gazella_environment: production             # integration, production
       gazella_key_home: /opt/vault/awx/secure
 
-- name: gomax config integration 
-  hosts: gazellacom-integration
+- name: gomax config production
+  hosts: gazella-erp-production
   become: true
   vars:
     gazella_group_security: swisstech
@@ -21,6 +21,6 @@
     - role: gazella-awx-config
       gazella_mode: config_client                  # config_client, cofig_server
       gazella_project: gomax                       # client
-      gazella_environment: integration             # integration, production
+      gazella_environment: production             # integration, production
       gazella_client_base: '/opt/.awx'
 

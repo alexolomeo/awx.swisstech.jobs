@@ -1,29 +1,29 @@
 ---
 
-- name: gomax integration encode
-  hosts: controller-server 
+- name: gomax ERP production encode
+  hosts: awx-server 
   vars:
     gazella_group_security: swisstech  
   roles:
-    - role: gazella-backup
+    - role: gazella-jobs-backup
       gazella_mode: backup-encode    
       gazella_project: gomax                                # client
-      gazella_app: com                                      # com , erp
-      gazella_environment: integration                      # integration, production
-      gazella_db_local_name: syscomdbintegration
+      gazella_app: erp                                      # com , erp
+      gazella_environment: production                     # integration, production
+      gazella_db_local_name: waradb
 
 - name: gomax integration encrypt
   hosts: gazellacom-integration
   vars:
     gazella_group_security: swisstech  
   roles:
-    - role: gazella-backup
+    - role: gazella-jobs-backup
       gazella_mode: backup-encrypt                 #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
-      gazella_app: com                             # com , erp
-      gazella_environment: integration             #integration, production
-      gazella_db_local_host: gomax-syscom-int.citzwq60niow.us-east-1.rds.amazonaws.com
-      gazella_db_local_name: syscomdbintegration
+      gazella_app: erp                             # com , erp
+      gazella_environment: production              #integration, production
+      gazella_db_local_host: gomax-wara-prod.citzwq60niow.us-east-1.rds.amazonaws.com
+      gazella_db_local_name: waradb
       gazella_db_local_port: 5432 
       gazella_db_local_username: "{{ db_username}}"
       gazella_db_local_password: "{{ db_password }}"

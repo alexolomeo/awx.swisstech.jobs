@@ -1,37 +1,37 @@
-[gazellaerp-production]
+[gazella-erp-production]
 erp-production ansible_host=gomax-erp-production.swisstech.solutions
 
-[gazellaerp-production:vars]
+[gazella-erp-production:vars]
 ansible_user=awx-user
 ansible_become=yes
 ansible_python_interpreter=/usr/bin/python3
 
-[gazellacom-production]
+[gazella-com-production]
 com-production ansible_host=gomax-com-production.swisstech.solutions
 
-[gazellacom-production:vars]
+[gazella-com-production:vars]
 ansible_user=awx-user
 ansible_become=yes
 
-[gazellaerp-integration]
+[gazella-erp-integration]
 erp-integration ansible_host=gomax-erp-integration.swisstech.solutions
 
-[gazellaerp-integration:vars]
+[gazella-erp-integration:vars]
 ansible_user=awx-user
 ansible_become=yes
 ansible_python_interpreter=/usr/bin/python3
 
-[gazellacom-integration]
+[gazella-com-integration]
 com-integration ansible_host=gomax-com-integration.swisstech.solutions
 
-[gazellacom-integration:vars]
+[gazella-com-integration:vars]
 ansible_user=awx-user
 ansible_become=yes
 
 
-[controller-server]
+[awx-server]
 controller ansible_host=159.65.253.208
 
-[controller-server:vars]
+[awx-server:vars]
 ansible_user=awx-build
 ansible_become=yes

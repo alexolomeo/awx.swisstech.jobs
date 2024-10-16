@@ -1,17 +1,17 @@
 ---
 
-- name: gomax integration backup
-  hosts: gazellacom-integration
+- name: gomax ERP integration backup
+  hosts: gazella-erp-integration
 #  become: true
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazella-backup
+    - role: gazella-jobs-backup
       gazella_mode: backup                         #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
       gazella_environment: integration             #integration, production
       gazella_db_local_host: gomax-syscom-int.citzwq60niow.us-east-1.rds.amazonaws.com                          
-      gazella_db_local_name: syscomdbintegration
+      gazella_db_local_name: waradbintegration
       gazella_db_local_port: 5432      
       gazella_db_local_username: "{{ db_username }}"                         
       gazella_db_local_password: "{{ db_password }}"               

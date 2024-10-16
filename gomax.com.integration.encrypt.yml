@@ -1,11 +1,11 @@
 ---
 
 - name: gomax integration encode
-  hosts: controller-server 
+  hosts: awx-server 
   vars:
     gazella_group_security: swisstech  
   roles:
-    - role: gazella-backup
+    - role: gazella-jobs-backup
       gazella_mode: backup-encode    
       gazella_project: gomax                                # client
       gazella_app: com                                      # com , erp
@@ -17,7 +17,7 @@
   vars:
     gazella_group_security: swisstech  
   roles:
-    - role: gazella-backup
+    - role: gazella-jobs-backup
       gazella_mode: backup-encrypt                 #backup, copyfromprod, restore, cleandb
       gazella_project: gomax                       # client
       gazella_app: com                             # com , erp
