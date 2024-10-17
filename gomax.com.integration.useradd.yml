@@ -6,7 +6,7 @@
   vars:
     gazella_group_security: swisstech
   roles:
-    - role: gazella-user-single
+    - role: gazella-jobs-user-single
       gazella_mode: user_server                    # user_client, client_server
       gazella_project: gomax                       # client
       gazella_environment: integration             # integration, production
